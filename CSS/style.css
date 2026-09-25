@@ -1,0 +1,410 @@
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    min-height: 100vh;
+    color: #ffffff;
+    overflow-x: hidden;
+    background: #0f0f14;
+}
+
+
+/* =========================
+   FONDO
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 0, 128, 0.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(120, 60, 255, 0.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(255, 80, 160, 0.15),
+            transparent 40%
+        ),
+        #0f0f14;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.04),
+            transparent 40%
+        );
+
+    backdrop-filter: blur(2px);
+}
+
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 60px 25px 30px;
+}
+
+
+/* =========================
+   PERFIL
+========================= */
+
+.profile {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* FOTO DE PERFIL */
+
+.profile-image {
+    width: 115px;
+    height: 115px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff0080,
+            #ff4d9d,
+            #7b2cff
+        );
+
+    padding: 4px;
+
+    box-shadow:
+        0 0 30px rgba(255, 0, 128, 0.35);
+
+    animation: floating 4s ease-in-out infinite;
+}
+
+.profile-image span {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #17171e;
+
+    font-size: 45px;
+    font-weight: 800;
+}
+
+
+/* NOMBRE */
+
+.profile h1 {
+    margin-top: 22px;
+
+    font-size: 32px;
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+
+/* USUARIO */
+
+.username {
+    margin-top: 5px;
+
+    color: #bdbdc7;
+
+    font-size: 15px;
+}
+
+
+/* DESCRIPCIÓN */
+
+.description {
+    margin-top: 15px;
+
+    color: #e6e6eb;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   BOTÓN INSTAGRAM
+========================= */
+
+.instagram-button {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 17px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    border-radius: 16px;
+
+    text-decoration: none;
+
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff0080,
+            #ff3d81,
+            #833ab4
+        );
+
+    box-shadow:
+        0 10px 30px rgba(255, 0, 128, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.instagram-button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 40px rgba(255, 0, 128, 0.4);
+}
+
+.instagram-icon {
+    font-size: 25px;
+}
+
+
+/* =========================
+   ENLACES
+========================= */
+
+.links-section {
+    margin-top: 45px;
+}
+
+.links-section h2 {
+    text-align: center;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.links-description {
+    margin-top: 8px;
+
+    text-align: center;
+
+    color: #a9a9b4;
+
+    font-size: 14px;
+}
+
+
+/* ENLACE PERSONALIZADO */
+
+.custom-link {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+
+    color: #ffffff;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    backdrop-filter: blur(15px);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.custom-link:hover {
+    transform: translateY(-3px);
+
+    background:
+        rgba(255,255,255,0.10);
+
+    border-color:
+        rgba(255,255,255,0.18);
+}
+
+
+/* ICONO */
+
+.link-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    font-size: 20px;
+}
+
+
+/* TEXTO */
+
+.link-text {
+    flex: 1;
+
+    margin-left: 14px;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+/* FLECHA */
+
+.arrow {
+    font-size: 22px;
+
+    color: #bdbdc7;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.custom-link:hover .arrow {
+    transform: translateX(5px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 60px;
+
+    text-align: center;
+
+    color: #777783;
+
+    font-size: 12px;
+}
+
+.footer-instagram {
+    margin-top: 5px;
+
+    color: #9999a5;
+}
+
+
+/* =========================
+   ANIMACIÓN
+========================= */
+
+@keyframes floating {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   CELULARES
+========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding:
+            45px 18px 25px;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-image span {
+        font-size: 38px;
+    }
+
+    .profile h1 {
+        font-size: 28px;
+    }
+
+    .instagram-button {
+        padding: 16px;
+    }
+
+    .links-section {
+        margin-top: 38px;
+    }
+
+}
+```
