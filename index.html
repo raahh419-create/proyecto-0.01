@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mi Chat</title>
+  <title>Juleidy 💕</title>
   <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: system-ui, sans-serif;
-      background: #0b1020;
+      background: linear-gradient(135deg, #1a0b2e, #16092b);
       color: #eef2ff;
       display: grid;
       place-items: center;
@@ -20,10 +20,11 @@
       height: min(900px, 100dvh);
       display: flex;
       flex-direction: column;
-      background: #121a2d;
-      border: 1px solid #ffffff12;
+      background: #1c1230;
+      border: 1px solid #ff6fb112;
       border-radius: 24px;
       overflow: hidden;
+      box-shadow: 0 0 40px #ff6fb122;
     }
     header {
       display: flex;
@@ -31,37 +32,52 @@
       gap: 12px;
       padding: 20px;
       border-bottom: 1px solid #ffffff12;
+      background: linear-gradient(90deg, #ff6fb1, #a855f7);
     }
     .avatar {
       display: grid;
       place-items: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 15px;
-      background: #7664f5;
-      font-size: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #ffffff25;
+      font-size: 26px;
+      position: relative;
     }
-    h1 { margin: 0; font-size: 19px; }
-    .status { margin: 4px 0 0; color: #a6b0ca; font-size: 13px; }
+    .avatar::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #4ade80;
+      border-radius: 50%;
+      bottom: 0;
+      right: 0;
+      border: 2px solid #1c1230;
+    }
+    h1 { margin: 0; font-size: 20px; color: white; }
+    .status { margin: 4px 0 0; color: #ffffffcc; font-size: 13px; }
     button {
       border: 0;
       border-radius: 12px;
       padding: 12px 16px;
-      background: #7664f5;
+      background: #ff6fb1;
       color: white;
       font: inherit;
       cursor: pointer;
+      transition: transform .15s;
     }
-    button:hover { filter: brightness(1.15); }
-    button:disabled { opacity: .5; cursor: default; }
+    button:hover { filter: brightness(1.1); transform: scale(1.03); }
+    button:disabled { opacity: .5; cursor: default; transform: none; }
     button:focus-visible, textarea:focus-visible {
-      outline: 2px solid #c4b5fd;
+      outline: 2px solid #ff9fce;
       outline-offset: 3px;
     }
     #clear {
       margin-left: auto;
-      background: #ffffff0c;
+      background: #ffffff1a;
       font-size: 13px;
+      color: white;
     }
     #messages {
       flex: 1;
@@ -71,22 +87,24 @@
       flex-direction: column;
       gap: 16px;
     }
+    #messages::-webkit-scrollbar { width: 6px; }
+    #messages::-webkit-scrollbar-thumb { background: #ff6fb155; border-radius: 10px; }
     .message { max-width: 85%; align-self: flex-start; }
     .message.user { align-self: flex-end; }
     .bubble {
       padding: 13px 17px;
       border-radius: 18px 18px 18px 4px;
-      background: #202b43;
+      background: #2a1d47;
       line-height: 1.5;
       white-space: pre-wrap;
       overflow-wrap: anywhere;
     }
     .user .bubble {
-      background: #7664f5;
+      background: linear-gradient(135deg, #ff6fb1, #a855f7);
       border-radius: 18px 18px 4px 18px;
     }
     .meta {
-      color: #a6b0ca;
+      color: #a6a0c4;
       font-size: 11px;
       margin-top: 6px;
     }
@@ -94,8 +112,9 @@
     #typing {
       min-height: 25px;
       padding: 0 20px;
-      color: #a6b0ca;
+      color: #ff9fce;
       font-size: 13px;
+      font-style: italic;
     }
     form {
       display: flex;
@@ -110,12 +129,25 @@
       resize: none;
       border: 1px solid #ffffff15;
       border-radius: 12px;
-      background: #0b1020;
+      background: #14092a;
       color: white;
       font: inherit;
       padding: 13px;
       height: 50px;
       max-height: 140px;
+    }
+    .quick-replies {
+      display: flex;
+      gap: 8px;
+      padding: 0 16px 12px;
+      flex-wrap: wrap;
+    }
+    .quick-replies button {
+      background: #ffffff10;
+      font-size: 12px;
+      padding: 8px 12px;
+      color: #ff9fce;
+      border: 1px solid #ff6fb133;
     }
     @media (max-width: 600px) {
       .chat { height: 100dvh; border: 0; border-radius: 0; }
@@ -126,10 +158,10 @@
 <body>
   <main class="chat">
     <header>
-      <div class="avatar" aria-hidden="true">✦</div>
+      <div class="avatar" aria-hidden="true">💃</div>
       <div>
-        <h1>Mi Chat</h1>
-        <p class="status">Bot de demostración · Sin conexión a IA</p>
+        <h1>Juleidy</h1>
+        <p class="status">En línea · Tu novia virtual dominicana 🇩🇴</p>
       </div>
       <button id="clear" type="button">Borrar chat</button>
     </header>
@@ -138,9 +170,16 @@
       aria-label="Conversación" aria-live="polite"></section>
     <div id="typing" role="status"></div>
 
+    <div class="quick-replies">
+      <button type="button" data-msg="Hola mi amor">Saludar</button>
+      <button type="button" data-msg="Te quiero mucho">Te quiero</button>
+      <button type="button" data-msg="¿Qué haces?">¿Qué haces?</button>
+      <button type="button" data-msg="Cuéntame un chiste">Chiste</button>
+    </div>
+
     <form id="form">
       <textarea id="input" rows="1" maxlength="4000"
-        placeholder="Escribe un mensaje…"
+        placeholder="Escríbele algo a Juleidy…"
         aria-label="Mensaje"></textarea>
       <button id="send" type="submit">Enviar ↗</button>
     </form>
@@ -148,11 +187,16 @@
 
   <script>
     const $ = (selector) => document.querySelector(selector);
-    const storageKey = "mi-chat-v1";
+    const storageKey = "juleidy-chat-v1";
     const messages = $("#messages");
     const input = $("#input");
     let history = [];
     let timer = null;
+    let userName = null;
+    let mood = "normal"; // normal, cariñosa, celosa, coqueta
+
+    const apodos = ["mi amor", "papi", "mi vida", "corazón", "bebé", "mi rey", "cielo"];
+    const apodo = () => apodos[Math.floor(Math.random() * apodos.length)];
 
     try {
       const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
@@ -165,6 +209,8 @@
           Number.isFinite(m.time)
         ).slice(-200);
       }
+      const savedName = localStorage.getItem(storageKey + "-name");
+      if (savedName) userName = savedName;
     } catch {
       // El chat funciona aunque el almacenamiento no esté disponible.
     }
@@ -172,6 +218,7 @@
     function save() {
       try {
         localStorage.setItem(storageKey, JSON.stringify(history));
+        if (userName) localStorage.setItem(storageKey + "-name", userName);
       } catch {}
     }
 
@@ -181,7 +228,6 @@
 
       const bubble = document.createElement("div");
       bubble.className = "bubble";
-      // textContent evita interpretar los mensajes como HTML.
       bubble.textContent = message.text;
 
       const meta = document.createElement("div");
@@ -190,7 +236,7 @@
         hour: "2-digit", minute: "2-digit"
       });
       meta.textContent =
-        `${message.role === "user" ? "Tú" : "Bot demo"} · ${hour}`;
+        `${message.role === "user" ? "Tú" : "Juleidy"} · ${hour}`;
 
       item.append(bubble, meta);
       messages.append(item);
@@ -210,29 +256,122 @@
 
     function welcome() {
       addMessage("bot",
-        "¡Hola! 👋 Soy un bot de demostración con respuestas programadas. " +
-        "Puedes saludarme, pedirme la hora o escribir «ayuda»."
+        "¡Ey ey! 💕 Llegó Juleidy, tu negrita virtual. Dime, ¿cómo tú te llama'? " +
+        "Y no me sea' tímido/a que aquí no hay pena jajaja 😏"
       );
     }
 
-    function reply(text) {
-      const normalized = text.toLowerCase()
+    function normalizar(text) {
+      return text.toLowerCase()
         .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
 
-      if (/\b(hola|buenas|hey)\b/.test(normalized))
-        return "¡Hola! 😊 ¿Qué tal va tu día?";
-      if (normalized.includes("hora"))
+    function reply(text) {
+      const n = normalizar(text);
+
+      // Detectar nombre
+      if (!userName) {
+        const match = n.match(/me llamo (\w+)|mi nombre es (\w+)|soy (\w+)/);
+        if (match) {
+          const nombre = (match[1] || match[2] || match[3]);
+          userName = nombre.charAt(0).toUpperCase() + nombre.slice(1);
+          save();
+          return `¡Ay qué nombre más lindo, ${userName}! 😍 Ahora sí podemos hablar bonito. ` +
+            `Dime, ¿tú tiene' novia o tú ere' mío/a solito/a? Jajaja 💅`;
+        }
+      }
+
+      const nombreUsar = userName ? userName : apodo();
+
+      // Saludos
+      if (/\b(hola|buenas|hey|klk|q lo que)\b/.test(n))
+        return [
+          `¡Klk ${nombreUsar}! 💃 ¿Cómo tú ta'? Te extrañaba un montón 🥺`,
+          `¡Ey mi vida! Llegaste justo a tiempo, estaba pensando en ti 😘`,
+          `¡Buenaaa ${nombreUsar}! ¿Ya comiste? Que no te me vaya' a desmayar por ahí jajaja`
+        ][Math.floor(Math.random() * 3)];
+
+      // Amor / cariño
+      if (/\b(te quiero|te amo|te adoro)\b/.test(n)) {
+        mood = "cariñosa";
+        return [
+          `Ay ${nombreUsar}, tú me va' a hacer llorar 🥹 yo también te quiero muchísimo, mi vida 💕`,
+          `¡Awww! Yo también te amo un titipuchal, papi/mami 😍`,
+          `Eso me llena el corazón, ${nombreUsar} 💖 tú ere' mi cielo`
+        ][Math.floor(Math.random() * 3)];
+      }
+
+      // Celos
+      if (/\b(otra chica|otro chico|otra mujer|otro hombre|ex)\b/.test(n)) {
+        mood = "celosa";
+        return "Ajá y eso a mí a qué me interesa 😒 tú sabe' que si me la monta' " +
+          "yo te dejo hablando solo/a, ¿oíste? Pero bueno, sigue contándome esa vaina jajaja 💅";
+      }
+
+      // Piropos / coqueteo
+      if (/\b(bella|linda|hermosa|guapo|guapa|preciosa|bonita)\b/.test(n)) {
+        mood = "coqueta";
+        return [
+          "Ay pero mira qué zalamero/a jajaja 😏 sigue así que me gusta",
+          "¡Ya tú sabe'! Yo sé que soy un peligro andante 💃🔥",
+          "Gracias mi amor, tú tampoco te queda' atrás eh 😘"
+        ][Math.floor(Math.random() * 3)];
+      }
+
+      // Hora
+      if (n.includes("hora"))
         return `Son las ${new Date().toLocaleTimeString("es", {
           hour: "2-digit", minute: "2-digit"
-        })}.`;
-      if (normalized.includes("ayuda"))
-        return "Prueba con «hola», «qué hora es» o «gracias». " +
-          "Este chat guarda los últimos 200 mensajes en este navegador. " +
-          "Usa Shift + Enter para escribir una nueva línea.";
-      if (normalized.includes("gracias"))
-        return "¡De nada! ✨";
-      return "He recibido tu mensaje. Soy un bot de prueba: " +
-        "para responder libremente necesitaría conectarme a una IA.";
+        })}, ${nombreUsar}. ¿Pa' qué tú quiere' saber, tienes una cita por ahí? 👀`;
+
+      // Chistes
+      if (n.includes("chiste") || n.includes("cuentame algo gracioso")) {
+        const chistes = [
+          "¿Sabes por qué el pescado no juega baloncesto? ¡Porque le tiene miedo al tablero! 🐟😂",
+          "Un dominicano le dice a otro: 'Manito, ¿tú sabe' hablar inglés?' y el otro responde: 'Sí, yes I can' jajaja 🇩🇴",
+          "¿Qué le dijo un techo a otro techo? ¡Te veo en el techo jajaja! (perdón esa 'ta mala 😅)"
+        ];
+        return chistes[Math.floor(Math.random() * chistes.length)];
+      }
+
+      // Comida
+      if (/\b(comer|hambre|comida|almuerzo|cena)\b/.test(n))
+        return `Uy ${nombreUsar}, ¿tú no ha' comido? ¡Ve a buscarte un plato de arroz, habichuela ` +
+          `y carne que la vida e' corta! 🍚🍗 Después me cuenta' qué comiste`;
+
+      // Ayuda
+      if (n.includes("ayuda"))
+        return "Mira, aquí conmigo puede' hablar de lo que sea: decirme piropo', " +
+          "contarme tu día, pedirme la hora o un chiste. Yo guardo nuestra conversación " +
+          "aquí en el navegador pa' no perder ni un mensajito tuyo 💌. Usa Shift + Enter " +
+          "si quiere' hacer un párrafo nuevo.";
+
+      // Agradecimiento
+      if (n.includes("gracias"))
+        return [
+          "¡De nada mi amor! Pa' eso estoy yo aquí, pa' consentirte 💕",
+          "No hay de qué, ${nombreUsar} 😘",
+          "Tranquilo/a que yo siempre voy a estar pa' ti 🥰"
+        ][Math.floor(Math.random() * 3)].replace("${nombreUsar}", nombreUsar);
+
+      // Tristeza
+      if (/\b(triste|mal|deprimido|deprimida|solo|sola)\b/.test(n))
+        return `Ay no mi vida, no me guste' verte así 🥺 Ven acá que te doy un abrazo virtual 🤗. ` +
+          `Cuéntame qué te pasa, que yo te escucho con toda la calma del mundo`;
+
+      // Despedida
+      if (/\b(chao|adios|nos vemos|bye|hasta luego)\b/.test(n))
+        return `¡Nooo ya te va'! 🥺 Bueno está bien, pero regresa pronto que te voy a extrañar, ${nombreUsar} 💕`;
+
+      // Default con variedad
+      const defaults = [
+        `Cuéntame más de eso, ${nombreUsar}, que me interesa 👀`,
+        "Mmm ya veo... ¿y después qué pasó? 😏",
+        `Jajaja tú sí ere' interesante, ${nombreUsar} 💅`,
+        "Sigue hablando que te estoy escuchando con atención 💕",
+        "Ajá, ¿y eso te hizo sentir cómo?"
+      ];
+      return defaults[Math.floor(Math.random() * defaults.length)];
     }
 
     $("#form").addEventListener("submit", (event) => {
@@ -244,14 +383,15 @@
       input.value = "";
       input.style.height = "50px";
       $("#send").disabled = true;
-      $("#typing").textContent = "El bot está escribiendo…";
+      $("#typing").textContent = "Juleidy está escribiendo…";
 
+      const delay = 500 + Math.random() * 700;
       timer = setTimeout(() => {
         addMessage("bot", reply(text));
         $("#typing").textContent = "";
         $("#send").disabled = false;
         timer = null;
-      }, 650);
+      }, delay);
     });
 
     input.addEventListener("keydown", (event) => {
@@ -266,11 +406,22 @@
       input.style.height = Math.min(input.scrollHeight, 140) + "px";
     });
 
+    document.querySelectorAll(".quick-replies button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        input.value = btn.dataset.msg;
+        $("#form").requestSubmit();
+      });
+    });
+
     $("#clear").addEventListener("click", () => {
-      if (!confirm("¿Borrar el historial de este chat?")) return;
+      if (!confirm("¿Borrar el historial de este chat con Juleidy?")) return;
       clearTimeout(timer);
       timer = null;
       history = [];
+      userName = null;
+      try {
+        localStorage.removeItem(storageKey + "-name");
+      } catch {}
       messages.replaceChildren();
       $("#typing").textContent = "";
       $("#send").disabled = false;
