@@ -10,181 +10,188 @@ html {
 }
 
 body {
-    font-family: "Inter", sans-serif;
     min-height: 100vh;
-    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    color: white;
+    background: #08080d;
     overflow-x: hidden;
-    background: #0f0f14;
 }
 
 
-/* =========================
-   FONDO
-========================= */
+/* ==============================
+   FONDO ANIMADO
+================================ */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    top: -180px;
+    left: -180px;
+    border-radius: 50%;
+    background: #ff0080;
+    filter: blur(130px);
+    opacity: 0.35;
+    animation: moveOne 9s infinite alternate ease-in-out;
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    right: -180px;
+    bottom: -180px;
+    border-radius: 50%;
+    background: #7c3cff;
+    filter: blur(130px);
+    opacity: 0.35;
+    animation: moveTwo 11s infinite alternate ease-in-out;
+    z-index: -2;
+}
 
 .background {
     position: fixed;
     inset: 0;
-    z-index: -2;
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255, 0, 128, 0.25),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 80% 30%,
-            rgba(120, 60, 255, 0.25),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(255, 80, 160, 0.15),
-            transparent 40%
-        ),
-        #0f0f14;
-}
-
-.background::before {
-    content: "";
-    position: absolute;
-    inset: 0;
+    z-index: -3;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.04),
-            transparent 40%
-        );
-
-    backdrop-filter: blur(2px);
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255, 0, 128, 0.10),
+            transparent 35%
+        ),
+        #08080d;
 }
 
 
-/* =========================
+/* ==============================
    CONTENEDOR
-========================= */
+================================ */
 
 .container {
     width: 100%;
-    max-width: 650px;
-    margin: 0 auto;
-    padding: 60px 25px 30px;
+    max-width: 600px;
+    margin: auto;
+    padding: 45px 20px 30px;
 }
 
 
-/* =========================
+/* ==============================
    PERFIL
-========================= */
+================================ */
 
 .profile {
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 
-/* FOTO DE PERFIL */
+/* ==============================
+   FOTO
+================================ */
 
 .profile-image {
-    width: 115px;
-    height: 115px;
+    position: relative;
+
+    width: 125px;
+    height: 125px;
+
+    margin: auto;
 
     border-radius: 50%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 4px;
 
     background:
         linear-gradient(
             135deg,
             #ff0080,
-            #ff4d9d,
-            #7b2cff
+            #ff8a00,
+            #7c3cff,
+            #00c6ff
         );
 
-    padding: 4px;
+    background-size: 300% 300%;
+
+    animation:
+        gradientMove 5s ease infinite,
+        floating 4s ease-in-out infinite;
 
     box-shadow:
-        0 0 30px rgba(255, 0, 128, 0.35);
-
-    animation: floating 4s ease-in-out infinite;
+        0 0 35px rgba(255, 0, 128, 0.45);
 }
 
 .profile-image span {
     width: 100%;
     height: 100%;
 
-    border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background: #17171e;
+    border-radius: 50%;
 
-    font-size: 45px;
+    background: #111118;
+
+    font-size: 46px;
     font-weight: 800;
 }
 
 
-/* NOMBRE */
+/* ==============================
+   NOMBRE
+================================ */
 
 .profile h1 {
     margin-top: 22px;
 
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 800;
 
     letter-spacing: -1px;
 }
 
-
-/* USUARIO */
-
 .username {
     margin-top: 5px;
 
-    color: #bdbdc7;
+    color: #aaaab8;
 
     font-size: 15px;
 }
-
-
-/* DESCRIPCIÓN */
 
 .description {
     margin-top: 15px;
 
-    color: #e6e6eb;
+    color: #eeeeF5;
 
     font-size: 15px;
 }
 
 
-/* =========================
-   BOTÓN INSTAGRAM
-========================= */
+/* ==============================
+   INSTAGRAM
+================================ */
 
 .instagram-button {
+    position: relative;
+
     width: 100%;
 
-    margin-top: 25px;
-
-    padding: 17px 20px;
+    margin-top: 28px;
+    padding: 18px 20px;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     gap: 12px;
 
-    border-radius: 16px;
+    border-radius: 18px;
+
+    color: white;
 
     text-decoration: none;
-
-    color: #ffffff;
 
     font-size: 16px;
     font-weight: 700;
@@ -192,13 +199,19 @@ body {
     background:
         linear-gradient(
             135deg,
-            #ff0080,
-            #ff3d81,
-            #833ab4
+            #feda75,
+            #fa7e1e,
+            #d62976,
+            #962fbf,
+            #4f5bd5
         );
 
+    background-size: 250% 250%;
+
+    animation: gradientMove 6s ease infinite;
+
     box-shadow:
-        0 10px 30px rgba(255, 0, 128, 0.25);
+        0 15px 35px rgba(214, 41, 118, 0.25);
 
     transition:
         transform 0.25s ease,
@@ -206,30 +219,40 @@ body {
 }
 
 .instagram-button:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
 
     box-shadow:
-        0 15px 40px rgba(255, 0, 128, 0.4);
+        0 20px 45px rgba(214, 41, 118, 0.40);
 }
 
 .instagram-icon {
-    font-size: 25px;
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid white;
+    border-radius: 7px;
+
+    font-size: 13px;
 }
 
 
-/* =========================
-   ENLACES
-========================= */
+/* ==============================
+   SECCIÓN DE ENLACES
+================================ */
 
 .links-section {
-    margin-top: 45px;
+    margin-top: 50px;
 }
 
 .links-section h2 {
     text-align: center;
 
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 23px;
+    font-weight: 800;
 }
 
 .links-description {
@@ -237,125 +260,153 @@ body {
 
     text-align: center;
 
-    color: #a9a9b4;
+    color: #92929f;
 
     font-size: 14px;
 }
 
 
-/* ENLACE PERSONALIZADO */
+/* ==============================
+   TARJETA DE ENLACE
+================================ */
 
 .custom-link {
+    position: relative;
+
     width: 100%;
 
-    margin-top: 18px;
+    min-height: 70px;
 
-    padding: 18px;
+    margin-top: 18px;
+    padding: 12px 15px;
 
     display: flex;
     align-items: center;
 
+    border: 1px solid rgba(255,255,255,0.10);
+
+    border-radius: 20px;
+
+    color: white;
+
     text-decoration: none;
 
-    color: #ffffff;
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    border-radius: 16px;
-
     background:
-        rgba(255,255,255,0.06);
+        rgba(255,255,255,0.055);
 
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,0.08),
+        0 10px 30px rgba(0,0,0,0.20);
 
     transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease;
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
 }
 
 .custom-link:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(255,255,255,0.25);
 
     background:
         rgba(255,255,255,0.10);
-
-    border-color:
-        rgba(255,255,255,0.18);
 }
 
 
-/* ICONO */
+/* ==============================
+   ICONO ENLACE
+================================ */
 
 .link-icon {
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 12px;
+    border-radius: 15px;
 
     background:
-        rgba(255,255,255,0.08);
+        linear-gradient(
+            135deg,
+            rgba(255,0,128,0.25),
+            rgba(124,60,255,0.25)
+        );
 
-    font-size: 20px;
+    border:
+        1px solid rgba(255,255,255,0.10);
+
+    font-size: 21px;
 }
 
 
-/* TEXTO */
+/* ==============================
+   TEXTO
+================================ */
 
 .link-text {
     flex: 1;
 
-    margin-left: 14px;
+    margin-left: 15px;
 
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 
-/* FLECHA */
+/* ==============================
+   FLECHA
+================================ */
 
 .arrow {
-    font-size: 22px;
+    margin-right: 5px;
 
-    color: #bdbdc7;
+    color: #aaaab8;
+
+    font-size: 24px;
 
     transition:
-        transform 0.25s ease;
+        transform 0.3s ease;
 }
 
 .custom-link:hover .arrow {
-    transform: translateX(5px);
+    transform: translateX(6px);
+
+    color: white;
 }
 
 
-/* =========================
+/* ==============================
    FOOTER
-========================= */
+================================ */
 
 footer {
-    margin-top: 60px;
+    margin-top: 65px;
 
     text-align: center;
 
-    color: #777783;
+    color: #686873;
 
     font-size: 12px;
 }
 
 .footer-instagram {
-    margin-top: 5px;
+    margin-top: 6px;
 
-    color: #9999a5;
+    color: #888894;
 }
 
 
-/* =========================
-   ANIMACIÓN
-========================= */
+/* ==============================
+   ANIMACIONES
+================================ */
 
 @keyframes floating {
 
@@ -364,47 +415,81 @@ footer {
     }
 
     50% {
-        transform: translateY(-7px);
+        transform: translateY(-8px);
     }
 
     100% {
         transform: translateY(0);
     }
-
 }
 
 
-/* =========================
-   CELULARES
-========================= */
+@keyframes gradientMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+@keyframes moveOne {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(200px, 150px);
+    }
+}
+
+
+@keyframes moveTwo {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-180px, -130px);
+    }
+}
+
+
+/* ==============================
+   MÓVIL
+================================ */
 
 @media (max-width: 600px) {
 
     .container {
-        padding:
-            45px 18px 25px;
+        padding: 35px 16px 25px;
     }
 
     .profile-image {
-        width: 100px;
-        height: 100px;
-    }
-
-    .profile-image span {
-        font-size: 38px;
+        width: 110px;
+        height: 110px;
     }
 
     .profile h1 {
-        font-size: 28px;
+        font-size: 30px;
     }
 
     .instagram-button {
-        padding: 16px;
+        padding: 17px;
     }
 
     .links-section {
-        margin-top: 38px;
+        margin-top: 42px;
     }
-
 }
 ```
+
